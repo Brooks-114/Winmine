@@ -25,6 +25,13 @@ namespace Winmine
 
         public bool cheat = false;
 
+        private static readonly (int dx, int dy)[] NeighborOffsets =
+        {
+            (-1, -1), (0, -1), (1, -1),
+            (-1,  0),          (1,  0),
+            (-1,  1), (0,  1), (1,  1)
+        };
+
         public Mine()
         {
             InitializeComponent();
@@ -84,14 +91,19 @@ namespace Winmine
 
                 if (inState == 0)
                 {
-                    if (Check(x - 1, y - 1)) form1.mines[x - 1, y - 1].ClickLeft();
-                    if (Check(x, y - 1))     form1.mines[x, y - 1].ClickLeft();
-                    if (Check(x + 1, y - 1)) form1.mines[x + 1, y - 1].ClickLeft();
-                    if (Check(x - 1, y))     form1.mines[x - 1, y].ClickLeft();
-                    if (Check(x + 1, y))     form1.mines[x + 1, y].ClickLeft();
-                    if (Check(x - 1, y + 1)) form1.mines[x - 1, y + 1].ClickLeft();
-                    if (Check(x, y + 1))     form1.mines[x, y + 1].ClickLeft();
-                    if (Check(x + 1, y + 1)) form1.mines[x + 1, y + 1].ClickLeft();
+                    foreach (var (dx, dy) in NeighborOffsets)
+                    {
+                        if (Check(x + dx, y + dy))
+                            form1.mines[x + dx, y + dy].ClickLeft();
+                    }
+                    //if (Check(x - 1, y - 1)) form1.mines[x - 1, y - 1].ClickLeft();
+                    //if (Check(x, y - 1))     form1.mines[x, y - 1].ClickLeft();
+                    //if (Check(x + 1, y - 1)) form1.mines[x + 1, y - 1].ClickLeft();
+                    //if (Check(x - 1, y))     form1.mines[x - 1, y].ClickLeft();
+                    //if (Check(x + 1, y))     form1.mines[x + 1, y].ClickLeft();
+                    //if (Check(x - 1, y + 1)) form1.mines[x - 1, y + 1].ClickLeft();
+                    //if (Check(x, y + 1))     form1.mines[x, y + 1].ClickLeft();
+                    //if (Check(x + 1, y + 1)) form1.mines[x + 1, y + 1].ClickLeft();
                 }
 
                 if (mine)
@@ -129,25 +141,35 @@ namespace Winmine
             {
                 int count = 0;
 
-                if (Check(x - 1, y - 1) && form1.mines[x - 1, y - 1].outState == OutState.flag) count++;
-                if (Check(x, y - 1) && form1.mines[x, y - 1].outState == OutState.flag)         count++;
-                if (Check(x + 1, y - 1) && form1.mines[x + 1, y - 1].outState == OutState.flag) count++;
-                if (Check(x - 1, y) && form1.mines[x - 1, y].outState == OutState.flag)         count++;
-                if (Check(x + 1, y) && form1.mines[x + 1, y].outState == OutState.flag)         count++;
-                if (Check(x - 1, y + 1) && form1.mines[x - 1, y + 1].outState == OutState.flag) count++;
-                if (Check(x, y + 1) && form1.mines[x, y + 1].outState == OutState.flag)         count++;
-                if (Check(x + 1, y + 1) && form1.mines[x + 1, y + 1].outState == OutState.flag) count++;
+                foreach (var (dx, dy) in NeighborOffsets)
+                {
+                    if (Check(x + dx, y + dy) && form1.mines[x + dx, y + dy].outState == OutState.flag)
+                        count++;
+                }
+                //if (Check(x - 1, y - 1) && form1.mines[x - 1, y - 1].outState == OutState.flag) count++;
+                //if (Check(x, y - 1) && form1.mines[x, y - 1].outState == OutState.flag)         count++;
+                //if (Check(x + 1, y - 1) && form1.mines[x + 1, y - 1].outState == OutState.flag) count++;
+                //if (Check(x - 1, y) && form1.mines[x - 1, y].outState == OutState.flag)         count++;
+                //if (Check(x + 1, y) && form1.mines[x + 1, y].outState == OutState.flag)         count++;
+                //if (Check(x - 1, y + 1) && form1.mines[x - 1, y + 1].outState == OutState.flag) count++;
+                //if (Check(x, y + 1) && form1.mines[x, y + 1].outState == OutState.flag)         count++;
+                //if (Check(x + 1, y + 1) && form1.mines[x + 1, y + 1].outState == OutState.flag) count++;
 
                 if (count != inState) return;
 
-                if (Check(x - 1, y - 1)) form1.mines[x - 1, y - 1].ClickLeft();
-                if (Check(x, y - 1))     form1.mines[x, y - 1].ClickLeft();
-                if (Check(x + 1, y - 1)) form1.mines[x + 1, y - 1].ClickLeft();
-                if (Check(x - 1, y))     form1.mines[x - 1, y].ClickLeft();
-                if (Check(x + 1, y))     form1.mines[x + 1, y].ClickLeft();
-                if (Check(x - 1, y + 1)) form1.mines[x - 1, y + 1].ClickLeft();
-                if (Check(x, y + 1))     form1.mines[x, y + 1].ClickLeft();
-                if (Check(x + 1, y + 1)) form1.mines[x + 1, y + 1].ClickLeft();
+                foreach (var (dx, dy) in NeighborOffsets)
+                {
+                    if (Check(x + dx, y + dy))
+                        form1.mines[x + dx, y + dy].ClickLeft();
+                }
+                //if (Check(x - 1, y - 1)) form1.mines[x - 1, y - 1].ClickLeft();
+                //if (Check(x, y - 1))     form1.mines[x, y - 1].ClickLeft();
+                //if (Check(x + 1, y - 1)) form1.mines[x + 1, y - 1].ClickLeft();
+                //if (Check(x - 1, y))     form1.mines[x - 1, y].ClickLeft();
+                //if (Check(x + 1, y))     form1.mines[x + 1, y].ClickLeft();
+                //if (Check(x - 1, y + 1)) form1.mines[x - 1, y + 1].ClickLeft();
+                //if (Check(x, y + 1))     form1.mines[x, y + 1].ClickLeft();
+                //if (Check(x + 1, y + 1)) form1.mines[x + 1, y + 1].ClickLeft();
             }
         }
 
@@ -165,7 +187,7 @@ namespace Winmine
                         form1.scoreLabel1.Value--;
                         break;
                     case OutState.flag:
-                        outState |= OutState.mark;
+                        outState = OutState.mark;
                         pictureBox1.BackgroundImage = Properties.Resources.问号;
                         form1.scoreLabel1.Value++;
                         break;
@@ -185,6 +207,12 @@ namespace Winmine
             {
                 if (form1.timer1.Enabled == false)
                     form1.timer1.Enabled = true;
+
+                if (Control.MouseButtons.HasFlag(MouseButtons.Left) && Control.MouseButtons.HasFlag(MouseButtons.Right))
+                {
+                    ClickMiddle();
+                    return;
+                }
 
                 switch (e.Button)
                 {
@@ -230,14 +258,19 @@ namespace Winmine
             else
             {
                 inState = 0;
-                if (Check(x - 1, y - 1) && form1.mines[x - 1, y - 1]?.mine == true) inState++;
-                if (Check(x, y - 1) && form1.mines[x, y - 1]?.mine == true) inState++;
-                if (Check(x + 1, y - 1) && form1.mines[x + 1, y - 1]?.mine == true) inState++;
-                if (Check(x - 1, y) && form1.mines[x - 1, y]?.mine == true) inState++;
-                if (Check(x + 1, y) && form1.mines[x + 1, y]?.mine == true) inState++;
-                if (Check(x - 1, y + 1) && form1.mines[x - 1, y + 1]?.mine == true) inState++;
-                if (Check(x, y + 1) && form1.mines[x, y + 1]?.mine == true) inState++;
-                if (Check(x + 1, y + 1) && form1.mines[x + 1, y + 1]?.mine == true) inState++;
+                foreach (var (dx, dy) in NeighborOffsets)
+                {
+                    if (Check(x + dx, y + dy) && form1.mines[x + dx, y + dy]?.mine == true)
+                        inState++;
+                }
+                //if (Check(x - 1, y - 1) && form1.mines[x - 1, y - 1]?.mine == true) inState++;
+                //if (Check(x, y - 1) && form1.mines[x, y - 1]?.mine == true) inState++;
+                //if (Check(x + 1, y - 1) && form1.mines[x + 1, y - 1]?.mine == true) inState++;
+                //if (Check(x - 1, y) && form1.mines[x - 1, y]?.mine == true) inState++;
+                //if (Check(x + 1, y) && form1.mines[x + 1, y]?.mine == true) inState++;
+                //if (Check(x - 1, y + 1) && form1.mines[x - 1, y + 1]?.mine == true) inState++;
+                //if (Check(x, y + 1) && form1.mines[x, y + 1]?.mine == true) inState++;
+                //if (Check(x + 1, y + 1) && form1.mines[x + 1, y + 1]?.mine == true) inState++;
             }
         }
 
