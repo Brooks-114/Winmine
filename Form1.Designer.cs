@@ -38,6 +38,8 @@
             this.中级ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.高级ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自定义ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.扫雷英雄榜ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.作弊CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -47,8 +49,6 @@
             this.scoreLabel2 = new Winmine.ScoreLabel();
             this.scoreLabel1 = new Winmine.ScoreLabel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.扫雷英雄榜ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -122,6 +122,18 @@
             this.自定义ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.自定义ToolStripMenuItem.Text = "自定义(&C)";
             this.自定义ToolStripMenuItem.Click += new System.EventHandler(this.自定义ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // 扫雷英雄榜ToolStripMenuItem
+            // 
+            this.扫雷英雄榜ToolStripMenuItem.Name = "扫雷英雄榜ToolStripMenuItem";
+            this.扫雷英雄榜ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.扫雷英雄榜ToolStripMenuItem.Text = "扫雷英雄榜";
+            this.扫雷英雄榜ToolStripMenuItem.Click += new System.EventHandler(this.扫雷英雄榜ToolStripMenuItem_Click);
             // 
             // 帮助HToolStripMenuItem
             // 
@@ -199,18 +211,6 @@
             this.panel4.TabIndex = 0;
             this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
-            // 扫雷英雄榜ToolStripMenuItem
-            // 
-            this.扫雷英雄榜ToolStripMenuItem.Name = "扫雷英雄榜ToolStripMenuItem";
-            this.扫雷英雄榜ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.扫雷英雄榜ToolStripMenuItem.Text = "扫雷英雄榜";
-            this.扫雷英雄榜ToolStripMenuItem.Click += new System.EventHandler(this.扫雷英雄榜ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -226,7 +226,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Creeper\'s Winmine";
+            this.Text = "Creeper\'s Winmine(https://github.com/Brooks-114/Winmine)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);

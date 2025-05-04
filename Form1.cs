@@ -70,7 +70,6 @@ namespace Winmine
 
             // 批量添加控件前暂停布局
             SuspendLayout();
-            panel3.SuspendLayout();
             try
             {
                 for (int i = 0; i < totalCells; i++)
@@ -103,7 +102,6 @@ namespace Winmine
             }
             finally
             {
-                panel3.ResumeLayout(true); // 恢复布局并强制刷新.
                 ResumeLayout(true);
             }
 
@@ -303,7 +301,7 @@ namespace Winmine
 
         private void 作弊CToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (gameState) return;
+            if (!gameState) return;
 
             if (cheatState)
             {
